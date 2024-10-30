@@ -1,0 +1,12 @@
+*.iml
+.gradle
+/local.properties
+/.idea
+.DS_Store
+/build
+/android-sdk-v5-uxsdk/build
+/captures
+.externalNativeBuild
+.cxx
+local.properties
+

@@ -1,0 +1,21 @@
+<resources>
+    <string name="app_name">ROS2 Driver</string>
+    <string name="ros">ROS</string>
+    <string name="ros2">ROS2</string>
+    <string name="natnet">NatNet</string>
+    <string name="natnetjava">NatNetJava</string>
+    <string name="motive">Motive</string>
+    <string name="optitrack">OptiTrack</string>
+    <string name="msdk">DJI Mobile SDK</string>
+    <string name="mavic3e">DJI Mavic 3 Enterprise</string>
+    <string name="mini3">DJI Mini 3</string>
+    <string name="mini3pro">DJI Mini 3 Pro</string>
+    <string name="pitch">pitch</string>
+    <string name="yaw">yaw</string>
+    <string name="roll">roll</string>
+    <string name="take_off">Take OFF</string>
+    <string name="auto_land">Auto Land</string>
+    <string name="import_mission">import_mission</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+</resources>

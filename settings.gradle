@@ -1,0 +1,3 @@
+rootProject.name = "ROS2 Driver"
+include ':app'
+include ':android-sdk-v5-uxsdk'

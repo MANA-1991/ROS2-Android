@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+    <data>
+
+        <variable
+            name="rosVM"
+            type="jp.ac.titech.e.sc.hfg.ros2driver.ros.RosVM" />
+
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:padding="16dp">
+    <Button
+        android:id="@+id/take_off"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/take_off"
+        android:layout_marginBottom="16dp"
+        android:onClick="takeoffButtonClicked"/>
+
+    <Button
+        android:id="@+id/auto_land"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/auto_land"
+        android:layout_marginBottom="16dp"
+        android:onClick="autoLandButtonClicked"/>
+        <Button
+            android:id="@+id/gps_get"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GPS GET"
+            android:layout_marginBottom="16dp"
+            android:onClick="getGPSButtonClicked"/>
+        <Button
+            android:id="@+id/home_set"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="HOME SET"
+            android:layout_marginBottom="16dp"
+            android:onClick="setHomeLocation"/>
+        <Button
+            android:id="@+id/goto_home"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="GOTO HOME"
+            android:layout_marginBottom="16dp"
+            android:onClick="gotoHome"/>
+
+    </LinearLayout>
+</layout>

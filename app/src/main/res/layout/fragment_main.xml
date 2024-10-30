@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".ui.MainFragment">
+
+    <dji.v5.ux.core.panel.topbar.TopBarPanelWidget
+        android:id="@+id/panel_top_bar"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/uxsdk_black"
+        android:paddingTop="@dimen/uxsdk_topbar_padding"
+        android:paddingBottom="@dimen/uxsdk_topbar_padding"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.12"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:uxsdk_itemsMarginRight="@dimen/uxsdk_spacing_normal"
+        app:uxsdk_itemsSpacing="14dp" />
+
+    <dji.v5.ux.core.widget.remainingflighttime.RemainingFlightTimeWidget
+        android:id="@+id/widget_remaining_flight_time"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toBottomOf="@id/panel_top_bar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHeight_percent="0.04"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/panel_top_bar" />
+
+    <SurfaceView
+        android:id="@+id/surfaceView"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:layout_marginBottom="24dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/widget_horizontal_situation_indicator"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/panel_top_bar" />
+
+    <dji.v5.ux.visualcamera.CameraVisiblePanelWidget
+        android:id="@+id/exposureSettingPanel"
+        android:layout_width="wrap_content"
+        android:layout_height="35dp"
+        app:layout_constraintStart_toStartOf="@+id/surfaceView"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView" />
+
+    <TextView
+        android:id="@+id/textFlightState"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text=""
+        android:textColor="@color/uxsdk_red"
+        android:textSize="60sp"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/surfaceView"
+        app:layout_constraintTop_toBottomOf="@+id/widget_horizontal_situation_indicator" />
+
+    <dji.v5.ux.core.widget.hsi.HorizontalSituationIndicatorWidget
+        android:id="@+id/widget_horizontal_situation_indicator"
+        android:layout_width="350dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@+id/textFlightState"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/surfaceView"
+        app:layout_constraintTop_toBottomOf="@+id/panel_top_bar" />
+
+    <dji.v5.ux.cameracore.widget.autoexposurelock.AutoExposureLockWidget
+        android:layout_width="35dp"
+        android:layout_height="35dp"
+        app:layout_constraintStart_toEndOf="@+id/exposureSettingPanel"
+        app:layout_constraintTop_toTopOf="@+id/surfaceView" />
+
+    <dji.v5.ux.core.panel.systemstatus.SystemStatusListPanelWidget
+        android:id="@+id/widget_panel_system_status_list"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="@color/uxsdk_black_70_percent"
+        android:divider="@color/uxsdk_light_gray_900"
+        android:dividerHeight="0.5dp"
+        android:paddingStart="@dimen/uxsdk_spacing_normal"
+        android:paddingLeft="@dimen/uxsdk_spacing_normal"
+        android:paddingEnd="@dimen/uxsdk_spacing_normal"
+        android:paddingRight="@dimen/uxsdk_spacing_normal"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintWidth_percent="0.95"
+        app:uxsdk_titleBarBackgroundColor="@color/uxsdk_black"
+        tools:visibility="gone" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
