@@ -1,9 +1,6 @@
 package jp.ac.titech.e.sc.hfg.ros2driver
 
 import android.content.Context
-import android.content.Intent
-import android.net.Uri
-import java.io.File
 import android.net.wifi.WifiManager
 import android.net.wifi.WifiManager.MulticastLock
 import android.os.Build
@@ -16,7 +13,6 @@ import android.view.WindowInsets
 import android.view.WindowInsetsController
 import android.view.WindowManager
 import android.widget.Toast
-import androidx.activity.result.contract.ActivityResultContracts
 import androidx.activity.viewModels
 import androidx.appcompat.app.AppCompatActivity
 import androidx.core.content.ContextCompat
@@ -44,12 +40,6 @@ import jp.ac.titech.e.sc.hfg.ros2driver.databinding.ActivityMainBinding
 import jp.ac.titech.e.sc.hfg.ros2driver.ros.FC
 import jp.ac.titech.e.sc.hfg.ros2driver.ros.RosVM
 import jp.ac.titech.e.sc.hfg.ros2driver.ui.ViewPagerAdapter
-import kotlinx.coroutines.CoroutineScope
-import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.launch
-import kotlinx.coroutines.withContext
-import java.io.BufferedReader
-import java.io.InputStreamReader
 import dji.sdk.keyvalue.value.flightcontroller.GPSSignalLevel as GPSSignalLevel
 
 
@@ -61,37 +51,7 @@ open class MainActivity : AppCompatActivity() {
     private val rosVM: RosVM by viewModels()
     //private lateinit var locationTextView: TextView
     private lateinit var multicastLock: MulticastLock
-    //mission Related Code
-//    fun showFileChooser(view: View){
-//        val intent = Intent(Intent.ACTION_GET_CONTENT).apply {
-//            type = "*/*" // Allows any file type
-//            addCategory(Intent.CATEGORY_OPENABLE)
-//        }
-//        try{
-//            startActivityForResult(Intent.createChooser(intent, "Select a file"), 100)
-//        }catch(exception: Exception){
-//            runOnUiThread {
-//                Toast.makeText(applicationContext, "Please Install a File manager", Toast.LENGTH_SHORT)
-//                        .show()
-//            }
-//
-//        }
-//    }
 
-
-//    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
-//        super.onActivityResult(requestCode, resultCode, data)
-//        if(requestCode == 100 && resultCode == RESULT_OK && data != null){
-//            val uri: Uri? = data.data
-//            val path: String = uri?.path.toString()
-//            val file = File(path)
-//            ///////////////////////////////////////////////////////////////////////////////////////////////////
-//            runOnUiThread {
-//                Toast.makeText(applicationContext, "File Name:\n${file.name}", Toast.LENGTH_LONG).show()
-//            }
-//            ///////////////////////////////////////////////////////////////////////////////////////////////////
-//        }
-//    }
 
     fun takeoffButtonClicked(view: View) {
         FC.takeoffCmdCallback()
@@ -246,6 +206,7 @@ open class MainActivity : AppCompatActivity() {
         lifecycle.addObserver(rosVM)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
         setFullScreen()
         window.addFlags(WindowManager.LayoutParams.FLAG_KEEP_SCREEN_ON)
 
@@ -264,44 +225,9 @@ open class MainActivity : AppCompatActivity() {
         multicastLock = wifiManager.createMulticastLock("NatNet")
         multicastLock.setReferenceCounted(false)
         multicastLock.acquire()
-        ///////////////////////////////////////////////////////////////////////////
 
-//         registerForActivityResult(ActivityResultContracts.StartActivityForResult()) { result ->
-//            if (result.resultCode == RESULT_OK) {
-//                val data: Intent? = result.data
-//                val uri: Uri? = data?.data
-//                uri?.let { handleFileUri(it) } // Call the function to handle the file URI
-//            }
-//        }
-
-        /////////////////////////////////////////////////////////////////////////
         registerApp()
     }
-
-//    private fun handleFileUri(uri: Uri) {
-//        // Use a coroutine to handle file reading in a background thread
-//        CoroutineScope(Dispatchers.IO).launch {
-//            try {
-//                val inputStream = contentResolver.openInputStream(uri)
-//                inputStream?.use { stream ->
-//                    val reader = BufferedReader(InputStreamReader(stream))
-//                    val content = StringBuilder()
-//                    reader.forEachLine { line ->
-//                        content.append(line).append("\n")
-//                    }
-//                    // Now you can use the file content (e.g., update UI)
-//                    withContext(Dispatchers.Main) {
-//                        Toast.makeText(applicationContext, "File Content:\n$content", Toast.LENGTH_LONG).show()
-//                    }
-//                }
-//            } catch (e: Exception) {
-//                Log.e("FilePicker", "Error reading file: ${e.message}")
-//                withContext(Dispatchers.Main) {
-//                    Toast.makeText(applicationContext, "Error reading file", Toast.LENGTH_SHORT).show()
-//                }
-//            }
-//        }
-//    }
 
     override fun onDestroy() {
         multicastLock.release()
