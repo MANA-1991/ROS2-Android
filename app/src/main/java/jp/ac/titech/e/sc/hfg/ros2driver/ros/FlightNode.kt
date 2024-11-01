@@ -42,8 +42,8 @@ class FlightNode(name: String?, private val rosVM: RosVM) : DisposableNode(name)
     private val pilotingCmdTopic = "/$name/cmd_vel"
 
     // State
-    private var isVirtualStickEnable = false
-    private var isVirtualStickAdvancedModeEnabled = false
+    private var isVirtualStickEnable = true
+    private var isVirtualStickAdvancedModeEnabled = true
     private val pilotingCmdCallback = Consumer<Twist> { msg ->
         rosVM.cmdVel.postValue(msg)
         if (flightState == FlightState.FLIGHT) {

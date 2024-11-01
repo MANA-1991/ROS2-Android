@@ -25,6 +25,7 @@ import jp.ac.titech.e.sc.hfg.ros2driver.CameraParameters
 import org.ros2.rcljava.consumers.Consumer
 import org.ros2.rcljava.publisher.Publisher
 import org.ros2.rcljava.subscription.Subscription
+import org.ros2.rcljava.qos.QoSProfile
 import sensor_msgs.msg.CameraInfo
 import sensor_msgs.msg.RegionOfInterest
 import std_msgs.msg.Bool
@@ -68,7 +69,8 @@ class ImageNode(
 
     init {
         // create publishers, subscribers and services here
-        ffmpegPacketPublisher = node.createPublisher(FFMPEGPacket::class.java, ffmpegStreamTopic)
+        val ffmpegQos = QoSProfile.SENSOR_DATA
+        ffmpegPacketPublisher = node.createPublisher(FFMPEGPacket::class.java, ffmpegStreamTopic, ffmpegQos)
         cameraInfoPublisher = node.createPublisher(CameraInfo::class.java, cameraInfoTopic)
         shootSubscription = node.createSubscription(Empty::class.java, shootTopic, shootCallback)
         recordSubscription = node.createSubscription(Bool::class.java, recordTopic, recordCallback)
