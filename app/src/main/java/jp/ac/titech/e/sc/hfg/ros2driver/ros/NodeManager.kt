@@ -49,13 +49,13 @@ class NodeManager(
         basicNode = BasicNode(name, rosVM).also { executor.addNode(it) }
         flightNode = FlightNode(name, rosVM).also { executor.addNode(it) }
         imageNode = ImageNode(name).also { imageExecutor.addNode(it) }
-        when (positioningType) {
+//        when (positioningType) {
 //            PositioningType.NatNet -> natNetNode =
 //                NatNetNode(name, rosVM).also { executor.addNode(it) }
 //
-            PositioningType.RTK -> rtkNode =
-                RTKNode(name, rosVM, preferences).also { executor.addNode(it) }
-        }
+//            PositioningType.RTK -> rtkNode =
+//                RTKNode(name, rosVM, preferences).also { executor.addNode(it) }
+//        }
         rosVM.isRosRun.postValue(true)
     }
 
