@@ -7,17 +7,19 @@ import jp.ac.titech.e.sc.hfg.ros2driver.R
 
 class ViewPagerAdapter(fragmentActivity: FragmentActivity) :
     FragmentStateAdapter(fragmentActivity) {
-    val titleIds = listOf("Summary", "ROS", "RTK","Anchor")
+    val titleIds = listOf("Summary", "ROS", "RTK","Anchor","WaypointMission")
     val icons = listOf(
-        dji.v5.ux.R.drawable.uxsdk_ic_topbar_flight_mode, R.drawable.ros_icon,
-        dji.v5.ux.R.drawable.uxsdk_ic_topbar_gps,
-            dji.v5.ux.R.drawable.uxsdk_arrow_right
+            dji.v5.ux.R.drawable.uxsdk_ic_topbar_flight_mode, R.drawable.ros_icon,
+            dji.v5.ux.R.drawable.uxsdk_ic_topbar_gps,
+            dji.v5.ux.R.drawable.uxsdk_arrow_right,
+            dji.v5.ux.R.drawable.uxsdk_mission_edit_panel_tab_bg_selected
     )
-    val fragments = listOf(
-        MainFragment.newInstance(),
-        RosSettingFragment.newInstance(),
-        RTKSettingFragment.newInstance(),
-            AnchorFragment.newInstance()
+    private val fragments = listOf(
+            MainFragment.newInstance(),
+            RosSettingFragment.newInstance(),
+            RTKSettingFragment.newInstance(),
+            AnchorFragment.newInstance(),
+            WPMissionFragment.newInstance()
     )
 
     override fun getItemCount(): Int {

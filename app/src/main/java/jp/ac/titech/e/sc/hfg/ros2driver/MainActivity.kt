@@ -22,11 +22,7 @@ import com.google.android.material.tabs.TabLayoutMediator
 import dji.sdk.keyvalue.key.FlightControllerKey
 import dji.sdk.keyvalue.key.KeyTools
 import dji.sdk.keyvalue.key.ProductKey
-import dji.sdk.keyvalue.value.common.EmptyMsg
-import dji.sdk.keyvalue.value.common.LocationCoordinate2D
-import dji.sdk.keyvalue.value.common.LocationCoordinate3D
 import dji.sdk.keyvalue.value.product.ProductType
-import dji.v5.common.callback.CommonCallbacks
 import dji.v5.common.error.IDJIError
 import dji.v5.common.register.DJISDKInitEvent
 import dji.v5.common.utils.GeoidManager
@@ -37,11 +33,8 @@ import dji.v5.ux.core.communication.DefaultGlobalPreferences
 import dji.v5.ux.core.communication.GlobalPreferencesManager
 import dji.v5.ux.core.util.UxSharedPreferencesUtil
 import jp.ac.titech.e.sc.hfg.ros2driver.databinding.ActivityMainBinding
-import jp.ac.titech.e.sc.hfg.ros2driver.ros.FC
 import jp.ac.titech.e.sc.hfg.ros2driver.ros.RosVM
 import jp.ac.titech.e.sc.hfg.ros2driver.ui.ViewPagerAdapter
-import dji.sdk.keyvalue.value.flightcontroller.GPSSignalLevel as GPSSignalLevel
-
 
 
 open class MainActivity : AppCompatActivity() {

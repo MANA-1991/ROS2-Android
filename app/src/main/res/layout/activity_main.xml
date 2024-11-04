@@ -42,6 +42,11 @@
             android:layout_height="wrap_content"
             android:icon="@drawable/uxsdk_arrow_right"
             android:text="Anchor" />
+        <com.google.android.material.tabs.TabItem
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:icon="@drawable/uxsdk_mission_edit_panel_tab_bg_selected"
+            android:text="Mission" />
 
     </com.google.android.material.tabs.TabLayout>
 
