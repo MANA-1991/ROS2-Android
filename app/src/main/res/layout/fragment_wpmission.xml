@@ -25,15 +25,15 @@
         <!--            android:layout_marginBottom="16dp"-->
         <!--            android:onClick="importMissionButtonClicked"/>-->
         <Button
-            android:id="@+id/btnOpenPicker"
+            android:id="@+id/saveKmz"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Open File Picker"
+            android:text="Save KMZ"
             />
 <!--        android:onClick="showFileChooser"-->
 
 <!--        <TextView-->
-<!--            android:id="@+id/show_filePath"-->
+<!--            android:id="@+id/show_kmzfilePath"-->
 <!--            android:layout_width="match_parent"-->
 <!--            android:layout_height="50dp"-->
 <!--             />-->

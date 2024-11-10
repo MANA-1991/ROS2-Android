@@ -31,7 +31,7 @@
 
         <meta-data
             android:name="com.dji.sdk.API_KEY"
-            android:value="7b09ddae14d681edbfc86843"/>
+            android:value="Enter Aircraft API Key Here"/>
 
         <activity
             android:name="jp.ac.titech.e.sc.hfg.ros2driver.MainActivity"
